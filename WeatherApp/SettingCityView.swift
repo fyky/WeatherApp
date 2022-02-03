@@ -12,21 +12,31 @@ struct SettingCityView: View {
 //    @State var cityValue = "一宮市"
     
     var body: some View {
-        VStack {
-            Text("選んだのは：\(cityValue)")
-                .font(.largeTitle)
+        ZStack {
+            Color("backgroundMain")
+//            Color.blue
             
-            Picker(selection: $cityValue) {
-                Text("一宮市")
-                    .tag("一宮市")
-                Text("名古屋市")
-                    .tag("名古屋市")
-            } label: {
-                Text("選択")
+            VStack {
+                Text("エリアを設定")
+                    .font(.title)
+                Spacer()
+                
+                Text("選んだのは：\(cityValue)")
+                    .font(.title)
+                
+                Spacer()
+                
+                Picker(selection: $cityValue) {
+                    Text("一宮市")
+                        .tag("一宮市")
+                    Text("名古屋市")
+                        .tag("名古屋市")
+                } label: {
+                    Text("選択")
+                }
+                .pickerStyle(.wheel)
             }
-            .pickerStyle(.wheel)
         }
-
     }
 }
 

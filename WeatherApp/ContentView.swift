@@ -13,21 +13,23 @@ struct ContentView: View {
     
    var body: some View {
        NavigationView {
-           VStack{
-                   Text("\(cityValue)の天気情報表示")
-
-           }
-           
-           // ナビゲーションボタン
-           .toolbar {
-               ToolbarItem(placement: .navigationBarTrailing) {
-                   NavigationLink(destination: SettingCityView()) {
-                       Text("エリア設定")
-                   }
+           ZStack {
+               Color("backgroundMain")
+               
+               VStack{
+                       Text("\(cityValue)の天気情報表示")
                }
-           } // .toolbarここまで
+               
+               // ナビゲーションボタン
+               .toolbar {
+                   ToolbarItem(placement: .navigationBarTrailing) {
+                       NavigationLink(destination: SettingCityView()) {
+                           Text("エリア設定").foregroundColor(.gray)
+                       }
+                   }
+               } // .toolbarここまで
+           }
        } // NavigationViewここまで
-
    }
 }
 

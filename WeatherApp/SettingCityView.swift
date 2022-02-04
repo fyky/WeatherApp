@@ -9,7 +9,6 @@ import SwiftUI
 
 struct SettingCityView: View {
     @AppStorage("city_value") var cityValue = "一宮市"
-//    @State var cityValue = "一宮市"
     
     var body: some View {
         ZStack {
@@ -19,6 +18,7 @@ struct SettingCityView: View {
             VStack {
                 Text("エリアを設定")
                     .font(.title)
+                
                 Spacer()
                 
                 Text("選んだのは：\(cityValue)")

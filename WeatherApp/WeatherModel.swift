@@ -77,3 +77,45 @@ struct Wind: Codable {
     let deg: Int
     let gust: Double
 }
+
+//  結果を戻す関数型定義
+typealias RecvFunc = ((_ item:Temperatures) -> Void)?
+
+// 天気情報を取得するクラス
+class WeatherModel {
+   //  関数ポインタ
+   var _action : ((_ item:Temperatures) -> Void)?
+   
+   //  結果受け取り用関数ポインタの設定
+   func SetAction(action: ((_ item:Temperatures) -> Void)?) {
+       self._action = action
+   }
+   //  天気情報を取得(APIコール)
+   func getWather(invoke_url: String, action: RecvFunc) -> Void{
+       //  関数ポインタをセット
+       self.SetAction(action: action)
+       
+       guard let url = URL(string: invoke_url) else {
+           print("URLが取得できませんでした")
+           return
+       }
+       
+       let request = URLRequest(url: url)
+       //  非同期通信を実行
+       URLSession.shared.dataTask(with: request) {
+           data, response, error in
+           //  受信が完了したら
+           if let data = data {
+               //  取得データのJSONをデコード
+               if let decodedResponse = try? JSONDecoder().decode(Temperatures.self, from: data) {
+                   DispatchQueue.main.async {
+                       //  セットした関数を呼び出して結果を返す
+                       self._action!(decodedResponse)
+                   }
+               }
+           }
+       }
+       //  タスク実行
+       .resume()
+   }
+}

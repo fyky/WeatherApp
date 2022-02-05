@@ -23,7 +23,7 @@ struct SettingCityView: View {
                     }, label: {
                         Image(systemName: "arrow.backward")
                     }
-                ).tint(.black)
+                ).tint(.white)
             }
         }
         
@@ -34,6 +34,7 @@ struct SettingCityView: View {
             VStack {
                 Text("エリアを設定する")
                     .font(.largeTitle)
+                    .foregroundColor(.white)
                     .frame(maxWidth: .infinity, alignment: .top)
                     .padding(EdgeInsets(
                         top: 100,
@@ -60,15 +61,17 @@ struct SettingCityView: View {
                         .font(.title)
                 }
 
-                HStack {
-                    Image("sun")
-                    Image("umbrella")
-                    Image("sun")
-                    Image("umbrella")
-                    Image("sun")
-                    Image("umbrella")
-                    Image("sun")
-                }
+//                HStack {
+//                    Image("sun")
+//                    Image("umbrella")
+//                    Image("sun")
+//                    Image("umbrella")
+//                    Image("sun")
+//                    Image("umbrella")
+//                    Image("sun")
+//                    Image("umbrella")
+//                    Image("sun")
+//                }
                 
                 Spacer()
                 

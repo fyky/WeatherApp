@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+extension Color {
+    static let customeColor = Color("link")
+}
 
 struct ContentView: View {
 
@@ -54,19 +57,10 @@ struct ContentView: View {
                    .ignoresSafeArea()
                
                VStack {
-                   HStack {
-                       Image("sun")
-                       Image("umbrella")
-                       Image("sun")
-                       Image("umbrella")
-                       Image("sun")
-                       Image("umbrella")
-                       Image("sun")
-                   }
-                   
                    if (cityValue == "Nagoya"){
                        Text("現在の愛知県名古屋市")
-                           .font(.largeTitle)
+                           .foregroundColor(.white)
+                           .font(.title)
                            .frame(maxWidth: .infinity, alignment: .top)
                            .padding(EdgeInsets(
                                top: 60,
@@ -77,6 +71,7 @@ struct ContentView: View {
                            .background(Color("backgroundMain"))
                    } else if (cityValue == "Ichinomiya") {
                        Text("現在の愛知県一宮市")
+                           .foregroundColor(.white)
                            .font(.title)
                            .frame(maxWidth: .infinity, alignment: .top)
                            .padding(EdgeInsets(
@@ -88,6 +83,7 @@ struct ContentView: View {
                            .background(Color("backgroundMain"))
                    } else if (cityValue == "Tokyo") {
                        Text("現在の東京都")
+                           .foregroundColor(.white)
                            .font(.title)
                            .frame(maxWidth: .infinity, alignment: .top)
                            .padding(EdgeInsets(
@@ -99,6 +95,7 @@ struct ContentView: View {
                            .background(Color("backgroundMain"))
                    } else {
                        Text("現在の大阪府")
+                           .foregroundColor(.white)
                            .font(.title)
                            .frame(maxWidth: .infinity, alignment: .top)
                            .padding(EdgeInsets(
@@ -116,7 +113,9 @@ struct ContentView: View {
                                    .padding()
                                    .font(.title)
                                Text("\(result)")
-                               .padding()
+                                   .foregroundColor(.gray)
+                                   .fontWeight(.bold)
+                                   .padding()
                            }.frame(minWidth: 0.0, maxWidth: .infinity, alignment: .leading)
                                .padding(.leading, 50)
                            
@@ -125,7 +124,9 @@ struct ContentView: View {
                                    .padding()
                                    .font(.title)
                                Text("\(temp)")
-                               .padding()
+                                   .foregroundColor(.gray)
+                                   .fontWeight(.bold)
+                                   .padding()
                            }.frame(minWidth: 0.0, maxWidth: .infinity, alignment: .leading)
                                .padding(.leading, 50)
                            
@@ -134,7 +135,9 @@ struct ContentView: View {
                                    .padding()
                                    .font(.title)
                                Text("\(humidity)")
-                               .padding()
+                                   .foregroundColor(.gray)
+                                   .fontWeight(.bold)
+                                   .padding()
                            }.frame(minWidth: 0.0, maxWidth: .infinity, alignment: .leading)
                                .padding(.leading, 50)
                        }
@@ -148,7 +151,7 @@ struct ContentView: View {
                        ToolbarItem(placement: .navigationBarTrailing) {
                            NavigationLink(destination: SettingCityView()) {
                                Image("settingArea")
-                               Text("エリア設定").foregroundColor(.black)
+                               Text("エリア設定").foregroundColor(Color.customeColor)
                            }
                        }
                    } // .toolbarここまで
@@ -167,6 +170,9 @@ struct ContentView: View {
                        Image("reload")
                            .padding()
                    }
+                   Text("天気情報を取得する")
+                       .font(.caption)
+                   
                }.frame(alignment: .center)
                
                Spacer()

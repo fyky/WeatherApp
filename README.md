@@ -15,3 +15,7 @@ APIを使ったシンプルなお天気アプリ<br>
 - Mac OS Monterey
 - XCode Version 13.2.1
 - SwiftUI
+
+# 動作デモ
+https://user-images.githubusercontent.com/91657176/152643416-46efb288-a57b-4bf2-af43-9c6549a29179.mov
+

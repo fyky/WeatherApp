@@ -12,7 +12,6 @@
 		4DDA6E4B27AABEED00428035 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DDA6E4A27AABEED00428035 /* Assets.xcassets */; };
 		4DDA6E4E27AABEED00428035 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DDA6E4D27AABEED00428035 /* Preview Assets.xcassets */; };
 		4DDA6E5527AABFAB00428035 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA6E5427AABFAB00428035 /* WeatherModel.swift */; };
-		4DDA6E5927AAD1B700428035 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA6E5827AAD1B700428035 /* CityModel.swift */; };
 		4DDA6E5D27AB82F300428035 /* SettingCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA6E5C27AB82F300428035 /* SettingCityView.swift */; };
 /* End PBXBuildFile section */
 
@@ -24,7 +23,6 @@
 		4DDA6E4A27AABEED00428035 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4DDA6E4D27AABEED00428035 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4DDA6E5427AABFAB00428035 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
-		4DDA6E5827AAD1B700428035 /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
 		4DDA6E5C27AB82F300428035 /* SettingCityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCityView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,7 +61,6 @@
 				4DDA6E4827AABEEB00428035 /* ContentView.swift */,
 				4DDA6E5C27AB82F300428035 /* SettingCityView.swift */,
 				4DDA6E5427AABFAB00428035 /* WeatherModel.swift */,
-				4DDA6E5827AAD1B700428035 /* CityModel.swift */,
 				4DDA6E4A27AABEED00428035 /* Assets.xcassets */,
 				4DDA6E4C27AABEED00428035 /* Preview Content */,
 			);
@@ -152,7 +149,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DDA6E5927AAD1B700428035 /* CityModel.swift in Sources */,
 				4DDA6E4927AABEEB00428035 /* ContentView.swift in Sources */,
 				4DDA6E5527AABFAB00428035 /* WeatherModel.swift in Sources */,
 				4DDA6E5D27AB82F300428035 /* SettingCityView.swift in Sources */,

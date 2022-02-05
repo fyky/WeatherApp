@@ -60,18 +60,6 @@ struct SettingCityView: View {
                     Text("大阪府")
                         .font(.title)
                 }
-
-//                HStack {
-//                    Image("sun")
-//                    Image("umbrella")
-//                    Image("sun")
-//                    Image("umbrella")
-//                    Image("sun")
-//                    Image("umbrella")
-//                    Image("sun")
-//                    Image("umbrella")
-//                    Image("sun")
-//                }
                 
                 Spacer()
                 

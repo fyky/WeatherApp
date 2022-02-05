@@ -27,10 +27,10 @@ struct SettingCityView: View {
                 Spacer()
                 
                 Picker(selection: $cityValue) {
-                    Text("一宮市")
-                        .tag("一宮市")
-                    Text("名古屋市")
-                        .tag("名古屋市")
+                    Text("東京")
+                        .tag("Tokyo")
+                    Text("大阪")
+                        .tag("Osaka")
                 } label: {
                     Text("選択")
                 }

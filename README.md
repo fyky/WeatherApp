@@ -1,5 +1,5 @@
 # WeatherApp(Swift)
-シンプルなお天気アプリ<br>
+APIを使ったシンプルなお天気アプリ<br>
 <img width="354" alt="スクリーンショット 2022-02-05 21 41 10" src="https://user-images.githubusercontent.com/91657176/152642548-7b04eaa4-e84c-4abf-91eb-965a8a2f1564.png">
 
 # 使い方

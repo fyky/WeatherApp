@@ -47,7 +47,6 @@ struct ContentView: View {
                self.result = self.result +  item.weatherDescription + "\n"
            }
        }
-
    }
     
    var body: some View {
@@ -113,6 +112,7 @@ struct ContentView: View {
                                    .padding()
                                    .font(.title)
                                Text("\(result)")
+                                   .font(.title2)
                                    .foregroundColor(.gray)
                                    .fontWeight(.bold)
                                    .padding()
@@ -124,6 +124,7 @@ struct ContentView: View {
                                    .padding()
                                    .font(.title)
                                Text("\(temp)")
+                                   .font(.title2)
                                    .foregroundColor(.gray)
                                    .fontWeight(.bold)
                                    .padding()
@@ -135,6 +136,7 @@ struct ContentView: View {
                                    .padding()
                                    .font(.title)
                                Text("\(humidity)")
+                                   .font(.title2)
                                    .foregroundColor(.gray)
                                    .fontWeight(.bold)
                                    .padding()

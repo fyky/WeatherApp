@@ -94,6 +94,8 @@
 			dependencies = (
 			);
 			name = WeatherApp;
+			packageProductDependencies = (
+			);
 			productName = WeatherApp;
 			productReference = 4DDA6E4327AABEEB00428035 /* WeatherApp.app */;
 			productType = "com.apple.product-type.application";
@@ -122,6 +124,8 @@
 				Base,
 			);
 			mainGroup = 4DDA6E3A27AABEEB00428035;
+			packageReferences = (
+			);
 			productRefGroup = 4DDA6E4427AABEEB00428035 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

@@ -16,6 +16,7 @@ struct SettingCityView: View {
 //            Color.blue
             
             VStack {
+                
                 Text("エリアを設定")
                     .font(.title)
                 

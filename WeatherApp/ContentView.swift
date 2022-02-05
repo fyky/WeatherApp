@@ -30,7 +30,7 @@ struct ContentView: View {
 //
     
    //  キー情報
-   let KeyCode = "946bc91fb84e19988d8b2207d6a2e17d"
+   let KeyCode = "＊＊＊＊＊"
    //  天気情報取得用クラス
    var obj = WeatherModel()
 

@@ -8,34 +8,73 @@
 import SwiftUI
 
 struct SettingCityView: View {
-    @AppStorage("city_value") var cityValue = "一宮市"
+    @AppStorage("city_value") var cityValue = "Tokyo"
     
     var body: some View {
         ZStack {
-            Color("backgroundMain")
-//            Color.blue
+            Color("area")
+                .ignoresSafeArea()
+    //               Image("bg")
             
             VStack {
+                Text("エリアを設定する")
+                    .font(.largeTitle)
+                    .frame(maxWidth: .infinity, alignment: .top)
+                    .padding(EdgeInsets(
+                        top: 100,
+                        leading: 0,
+                        bottom: 30,
+                        trailing: 0
+                    ))
+                    .background(Color("backgroundMain"))
+                     .foregroundColor(Color.black.opacity(0.7))
+ //                   .cornerRadius(15)
+                    .ignoresSafeArea()
+
                 
-                Text("エリアを設定")
-                    .font(.title)
+//                Spacer()
                 
-                Spacer()
-                
-                Text("選んだのは：\(cityValue)")
-                    .font(.title)
+                if (cityValue == "Nagoya"){
+                    Text("愛知県名古屋市")
+                        .font(.title)
+                } else if (cityValue == "Ichinomiya") {
+                    Text("愛知県一宮市")
+                        .font(.title)
+                } else if (cityValue == "Tokyo") {
+                    Text("東京都")
+                        .font(.title)
+                } else {
+                    Text("大阪府")
+                        .font(.title)
+                }
+
+                HStack {
+                    Image("sun")
+                    Image("umbrella")
+                    Image("sun")
+                    Image("umbrella")
+                    Image("sun")
+                    Image("umbrella")
+                    Image("sun")
+                }
                 
                 Spacer()
                 
                 Picker(selection: $cityValue) {
-                    Text("東京")
-                        .tag("Tokyo")
-                    Text("大阪")
+                    Text("愛知県名古屋市")
+                        .tag("Nagoya")
+                    Text("愛知県一宮市")
+                        .tag("Ichinomiya")
+                    Text("大阪府")
                         .tag("Osaka")
+                    Text("東京都")
+                        .tag("Tokyo")
                 } label: {
                     Text("選択")
                 }
                 .pickerStyle(.wheel)
+                
+                Spacer()
             }
         }
     }

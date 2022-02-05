@@ -6,11 +6,16 @@
 //
 
 import SwiftUI
+extension Color {
+    static let customeColor = Color("link")
+}
 
 struct ContentView: View {
+
+    let date = Date.now
     
     // 子ビューから値を渡す
-    @AppStorage("city_value") var cityValue = "Tokyo"
+    @AppStorage("city_value") var cityValue = "Ichinomiya"
     
    //  天気情報
    @State var result = ""
@@ -18,12 +23,6 @@ struct ContentView: View {
    @State var temp = ""
    //  湿度
    @State var humidity = ""
-    
-    
-//   //  天気情報を取得する場所
-//   let cityValue = "Tokyo"
-//
-//
     
    //  キー情報
    let KeyCode = "*****"
@@ -49,56 +48,137 @@ struct ContentView: View {
            }
        }
    }
+    
    var body: some View {
        NavigationView {
-           VStack{
-               //  天気取得用
-               Button(action:{
-                   var invokeURL = ""
-
-                       invokeURL = "https://api.openweathermap.org/data/2.5/weather?q=\(cityValue),jp&appid=\(self.KeyCode)&lang=ja&units=metric"
-
-                   //  天気情報を取得(APIコール)
-                   self.obj.getWeather(invoke_url: invokeURL, action: self.GetData)
-               })
-               {
-                   HStack{
-                       Text("\(cityValue)")
-
-                       Text("今日の天気は?")
-                       .padding()
-                       .border(Color.black)
-                   }
-               }
-               HStack{
-                   Text("天気 ")
-                       .padding()
-                   Text("\(result)")
-                   .padding()
-               }
-               HStack{
-                   Text("気温 ")
-                       .padding()
-                   Text("\(temp)")
-                   .padding()
-               }
-               HStack{
-                   Text("湿度 ")
-                       .padding()
-                   Text("\(humidity)")
-                   .padding()
-               }
+           ZStack {
+               Color("area")
+                   .ignoresSafeArea()
                
-               // ナビゲーションボタン
-               .toolbar {
-                   ToolbarItem(placement: .navigationBarTrailing) {
-                       NavigationLink(destination: SettingCityView()) {
-                           Image("settingArea")
-                           Text("エリア設定").foregroundColor(.gray)
+               VStack {
+                   if (cityValue == "Nagoya"){
+                       Text("現在の愛知県名古屋市")
+                           .foregroundColor(.white)
+                           .font(.title)
+                           .frame(maxWidth: .infinity, alignment: .top)
+                           .padding(EdgeInsets(
+                               top: 60,
+                               leading: 0,
+                               bottom: 60,
+                               trailing: 0
+                           ))
+                           .background(Color("backgroundMain"))
+                   } else if (cityValue == "Ichinomiya") {
+                       Text("現在の愛知県一宮市")
+                           .foregroundColor(.white)
+                           .font(.title)
+                           .frame(maxWidth: .infinity, alignment: .top)
+                           .padding(EdgeInsets(
+                               top: 60,
+                               leading: 0,
+                               bottom: 60,
+                               trailing: 0
+                           ))
+                           .background(Color("backgroundMain"))
+                   } else if (cityValue == "Tokyo") {
+                       Text("現在の東京都")
+                           .foregroundColor(.white)
+                           .font(.title)
+                           .frame(maxWidth: .infinity, alignment: .top)
+                           .padding(EdgeInsets(
+                               top: 60,
+                               leading: 0,
+                               bottom: 60,
+                               trailing: 0
+                           ))
+                           .background(Color("backgroundMain"))
+                   } else {
+                       Text("現在の大阪府")
+                           .foregroundColor(.white)
+                           .font(.title)
+                           .frame(maxWidth: .infinity, alignment: .top)
+                           .padding(EdgeInsets(
+                               top: 60,
+                               leading: 0,
+                               bottom: 60,
+                               trailing: 0
+                           ))
+                           .background(Color("backgroundMain"))
+                   }
+                   
+                       VStack {
+                           HStack{
+                               Text("天気 ")
+                                   .padding()
+                                   .font(.title)
+                               Text("\(result)")
+                                   .font(.title2)
+                                   .foregroundColor(.gray)
+                                   .fontWeight(.bold)
+                                   .padding()
+                           }.frame(minWidth: 0.0, maxWidth: .infinity, alignment: .leading)
+                               .padding(.leading, 50)
+                           
+                           HStack{
+                               Text("気温 ")
+                                   .padding()
+                                   .font(.title)
+                               Text("\(temp)")
+                                   .font(.title2)
+                                   .foregroundColor(.gray)
+                                   .fontWeight(.bold)
+                                   .padding()
+                           }.frame(minWidth: 0.0, maxWidth: .infinity, alignment: .leading)
+                               .padding(.leading, 50)
+                           
+                           HStack{
+                               Text("湿度 ")
+                                   .padding()
+                                   .font(.title)
+                               Text("\(humidity)")
+                                   .font(.title2)
+                                   .foregroundColor(.gray)
+                                   .fontWeight(.bold)
+                                   .padding()
+                           }.frame(minWidth: 0.0, maxWidth: .infinity, alignment: .leading)
+                               .padding(.leading, 50)
                        }
+
+                       .background(.white)
+                       .cornerRadius(15)
+                       .padding()
+
+                   // ナビゲーションボタン
+                   .toolbar {
+                       ToolbarItem(placement: .navigationBarTrailing) {
+                           NavigationLink(destination: SettingCityView()) {
+                               Image("settingArea")
+                               Text("エリア設定").foregroundColor(Color.customeColor)
+                           }
+                       }
+                   } // .toolbarここまで
+                       
+                   Text("\(Date.now.formatted(date: .long, time: .standard))")
+                   
+                   //  天気取得用
+                   Button(action:{
+                       var invokeURL = ""
+
+                           invokeURL = "https://api.openweathermap.org/data/2.5/weather?q=\(cityValue),jp&appid=\(self.KeyCode)&lang=ja&units=metric"
+
+                       //  天気情報を取得(API)
+                       self.obj.getWeather(invoke_url: invokeURL, action: self.GetData)
+                   }) {
+                       Image("reload")
+                           .padding()
                    }
-               } // .toolbarここまで
+                   Text("天気情報を取得する")
+                       .font(.caption)
+                   
+               }.frame(alignment: .center)
                
+               Spacer()
+
            }
        } // navigationviewここまで
    }
@@ -107,5 +187,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
    static var previews: some View {
        ContentView()
+           .padding(15)
    }
 }

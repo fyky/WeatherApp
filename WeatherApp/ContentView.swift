@@ -12,7 +12,7 @@ struct ContentView: View {
     let date = Date.now
     
     // 子ビューから値を渡す
-    @AppStorage("city_value") var cityValue = "Tokyo"
+    @AppStorage("city_value") var cityValue = "Ichinomiya"
     
    //  天気情報
    @State var result = ""
@@ -21,16 +21,8 @@ struct ContentView: View {
    //  湿度
    @State var humidity = ""
     
-//   @State var weathericon = ""
-    
-    
-//   //  天気情報を取得する場所
-//   let cityValue = "Tokyo"
-//
-//
-    
    //  キー情報
-   let KeyCode = "＊＊＊＊＊"
+   let KeyCode = "*****"
    //  天気情報取得用クラス
    var obj = WeatherModel()
 
@@ -60,7 +52,6 @@ struct ContentView: View {
            ZStack {
                Color("area")
                    .ignoresSafeArea()
-//               Image("bg")
                
                VStack {
                    HStack {
@@ -75,7 +66,7 @@ struct ContentView: View {
                    
                    if (cityValue == "Nagoya"){
                        Text("現在の愛知県名古屋市")
-                           .font(.title)
+                           .font(.largeTitle)
                            .frame(maxWidth: .infinity, alignment: .top)
                            .padding(EdgeInsets(
                                top: 60,
@@ -119,22 +110,7 @@ struct ContentView: View {
                            .background(Color("backgroundMain"))
                    }
                    
-//                   Text("現在の\(cityValue)の天気")
-//                       .font(.title)
-//                       .frame(maxWidth: .infinity, alignment: .top)
-//                       .padding(EdgeInsets(
-//                           top: 60,
-//                           leading: 0,
-//                           bottom: 60,
-//                           trailing: 0
-//                       ))
-//                       .background(Color("backgroundMain"))
-//
-//
-
                        VStack {
-
-                           
                            HStack{
                                Text("天気 ")
                                    .padding()
@@ -162,30 +138,21 @@ struct ContentView: View {
                            }.frame(minWidth: 0.0, maxWidth: .infinity, alignment: .leading)
                                .padding(.leading, 50)
                        }
-    //                   .frame(minWidth: 0.0, maxWidth: .infinity)
-    //                   .frame(height: 150)
 
                        .background(.white)
-//                       .border(Color.black, width: 3)
                        .cornerRadius(15)
                        .padding()
 
-    //                   .frame(maxWidth: .infinity,
-    //                          alignment:.leading
-    //                   )
-
-                       // ナビゲーションボタン
-                       .toolbar {
-                           ToolbarItem(placement: .navigationBarTrailing) {
-                               NavigationLink(destination: SettingCityView()) {
-//                                   Image("settingArea")
-                                   Text("エリア設定")
-//                                       .foregroundColor(.gray)
-                               }
+                   // ナビゲーションボタン
+                   .toolbar {
+                       ToolbarItem(placement: .navigationBarTrailing) {
+                           NavigationLink(destination: SettingCityView()) {
+                               Image("settingArea")
+                               Text("エリア設定").foregroundColor(.black)
                            }
-                       } // .toolbarここまで
+                       }
+                   } // .toolbarここまで
                        
-
                    Text("\(Date.now.formatted(date: .long, time: .standard))")
                    
                    //  天気取得用
@@ -194,24 +161,17 @@ struct ContentView: View {
 
                            invokeURL = "https://api.openweathermap.org/data/2.5/weather?q=\(cityValue),jp&appid=\(self.KeyCode)&lang=ja&units=metric"
 
-                       //  天気情報を取得(APIコール)
+                       //  天気情報を取得(API)
                        self.obj.getWeather(invoke_url: invokeURL, action: self.GetData)
-                   })
-                   {
+                   }) {
                        Image("reload")
                            .padding()
                    }
-                   
-                   
-                   
                }.frame(alignment: .center)
                
                Spacer()
-               
+
            }
-           
-
-
        } // navigationviewここまで
    }
 }

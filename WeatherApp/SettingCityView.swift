@@ -8,13 +8,28 @@
 import SwiftUI
 
 struct SettingCityView: View {
-    @AppStorage("city_value") var cityValue = "Tokyo"
+    @AppStorage("city_value") var cityValue = "Ichinomiya"
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
+        VStack {
+        }
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(
+                    action: {
+                        dismiss()
+                    }, label: {
+                        Image(systemName: "arrow.backward")
+                    }
+                ).tint(.black)
+            }
+        }
+        
         ZStack {
             Color("area")
                 .ignoresSafeArea()
-    //               Image("bg")
             
             VStack {
                 Text("エリアを設定する")
@@ -28,11 +43,8 @@ struct SettingCityView: View {
                     ))
                     .background(Color("backgroundMain"))
                      .foregroundColor(Color.black.opacity(0.7))
- //                   .cornerRadius(15)
                     .ignoresSafeArea()
 
-                
-//                Spacer()
                 
                 if (cityValue == "Nagoya"){
                     Text("愛知県名古屋市")
